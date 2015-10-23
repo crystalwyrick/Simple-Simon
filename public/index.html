@@ -1,0 +1,158 @@
+<!-- create 4 divs, one for each color, and assign a number from 0 - 3
+create a start button 
+random integer selector (MDN "random integer") - which color to light up
+	function getRandomIntInclusive(0, 3) {
+  	return Math.floor(Math.random() * (max - min + 1)) + min
+random number makes color flash (change opacity)
+	  // convert random number into a color and flash - use data-id for number/color?
+        // flash: color is 50% opacity unless random number = color id number, then it is 100%
+figure out how to track the order of numbers/colors/flashes and compare to user's input (Konami Code): 
+    Simon: randomOrder, randomPattern, randomSequence, simonSequence
+    Player: playerResponse, playerSequence
+            add a tone to the flash: E-note (blue, lower right);
+            C♯-note (yellow, lower left);
+            A-note (red, upper right).
+            E-note (green, upper left, an octave lower than blue);
+                	Justin's Konami Code:
+                	"use strict";
+                var konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+                var keysCorrect = [];
+
+                $(document).keyup(function(event){
+                    console.log(event.keyCode);
+                    keysCorrect.push(event.keyCode);
+
+                    ***comparing just the last number rather than the entire array***
+                    if (keysCorrect[keysCorrect.length-1] != konamiCode[keysCorrect.length-1]) {
+                        keysCorrect = [];
+                    }
+
+                    if (keysCorrect.length == konamiCode.length) {
+                        $("body").css("background-image", "url(/img/up1.jpeg");
+                        alert("You have added 30 lives!");
+                    }
+                });
+                	
+
+
+                    add the random number to an array
+ <!how to add another number if user's input is correct or stop game if not correct -->
+<!-- how to slowly increase speed as array gets longer -->
+
+
+
+
+<!doctype>
+<html>
+<head>
+	<title>Simple Simon Game</title>
+	<link rel="stylesheet" href="index.css">
+</head>
+<body>
+	<button id="start">Start</button>
+    <div class="container">
+        <div id="0" class="green"></div>
+    	<div id="1" class="red"></div>
+    	<div id="2" class="blue"></div>
+    	<div id="3" class="yellow"></div>
+    </div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
+    // 1-  generate random number - math.random
+        "use strict";
+         function getRandomIntInclusive() {
+  			return Math.floor(Math.random() * 4)
+        }        	
+        	
+
+    // 2-  add random number to array - 
+
+
+                 
+        
+
+
+            for (var i = 0; i < 10; i++) {
+                var randomNumber = getRandomIntInclusive();
+                simonSequence.push(randomNumber);
+            }
+                console.log(simonSequence);
+
+    // 3-  flash corresponding number button
+
+        	if (randomNumber == 0) {
+        		$(".green").css("opacity", "1");
+        	}else{
+        		$(".green").css("opacity", ".5");
+        	}
+            if (randomNumber == 1) {
+                $(".red").css("opacity", "1");
+            }else{
+                $(".red").css("opacity", ".5");
+            }
+            if (randomNumber == 2) {
+                $(".blue").css("opacity", "1");
+            }else{
+                $(".blue").css("opacity", ".5");
+            }
+            if (randomNumber == 3) {
+                $(".yellow").css("opacity", "1");
+            }else{
+                $(".yellow").css("opacity", ".5");
+            }
+    
+
+    // 4-  players input
+
+            $("#0").hover(function(){
+                $(this).css("opacity", "1")
+            } , function() {
+                $(this).css("opacity", ".5")
+            })
+            $("#0").click(function(){
+                $(this).css("opacity", "1");
+            });
+
+    
+
+    // 5-  compare with simon's number
+        
+            var simonSequence = [];
+            var playerSequence = [];
+
+            $(document).click(function(event){
+                console.log(event.clickSequence);
+                playerSequence.push(event.clickSequence);
+            
+            
+            if (playerSequence[playerSequence.length-1] != simonSequence[playerSequence.length-1]) {
+                        playerSequence = [];
+                }
+            })
+                console.log(playerSequence);
+
+    // 6-  continue to next random number or end game
+
+        // $(document).keyup(function(event){
+        // 	var userEnteredKey = event.keyCode;
+        //     console.log(userEnteredKey);
+
+
+        //     if (userEnteredKey == code[index]) {
+        //     	index++;
+        //     } else {
+        //     	index = 0;
+        //     	console.log("You entered the wrong button, restarting.");
+        //     }
+            
+        //     if (index == code.length) {
+        //     	index = 0;
+        //     	alert("You have 30 lives!")
+        //     }
+        // });
+
+    
+    </script>
+</body>
+</html>

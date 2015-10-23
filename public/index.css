@@ -1,0 +1,51 @@
+.container{
+	height: 700px;
+	width: 700px;
+	border-radius: 350px;
+	position: relative;
+	background-color: black;
+}
+
+.green{
+	height: 275px;
+	width: 275px;
+	border-top-left-radius: 275px;
+	background-color: #0CB51A;
+	position: absolute;
+	opacity: .75;
+	left: 50px;
+	top: 50px;
+
+}
+.red{
+	height: 275px;
+	width: 275px;
+	border-top-right-radius: 275px;
+	background-color: #FD3C2A;
+	position: absolute;
+	left: 300px;
+	opacity: .75;
+	left: 375px;
+	top: 50px;
+}
+.blue{
+	height: 275px;
+	width: 275px;
+	border-bottom-left-radius: 275px;
+	background-color: #00A7F0;
+	position: absolute;
+	top: 375px;
+	left: 50px;
+	opacity: .75;
+	
+}
+.yellow{
+	height: 275px;
+	width: 275px;
+	border-bottom-right-radius: 275px;
+	background-color: #FFFF01;
+	position: absolute;
+	top: 375px;
+	left: 375px;
+	opacity: .75;
+}
